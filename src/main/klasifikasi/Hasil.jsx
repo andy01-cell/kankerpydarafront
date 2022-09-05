@@ -17,7 +17,7 @@ const Hasil = () => {
   });
   // useEffect(() => {
   //   axios
-  //     .get("http://localhost:5000/getfile", {
+  //     .get("localhost:5000//static/clasifer/clasifier.jpg", {
   //       headers: {
   //         "Content-Type": "multipart/form-data",
   //       },
@@ -61,7 +61,7 @@ const Hasil = () => {
                     },
                   }}
                   alt="The house from the offer."
-                  src={state.imgkanker}
+                  src={"http://localhost:5000//static/clasifer/clasifier.jpg"}
                 />
               </Grid>
               <Grid item xs={12} md={12} marginTop="20px">

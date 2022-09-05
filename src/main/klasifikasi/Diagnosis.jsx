@@ -107,6 +107,14 @@ const Diagnosis = () => {
             },
           });
         } else {
+          lvlkanker = "NORMAL";
+          healsolusi = "-";
+          navigate("/hasil", {
+            state: {
+              lvlkanker: lvlkanker,
+              healsolusi: healsolusi,
+            },
+          });
         }
       })
       .catch((err) => {
@@ -140,26 +148,37 @@ const Diagnosis = () => {
           }}
         >
           <form onSubmit={onbtndiagnosa} encType="multipart/form-data">
-            <Grid container xs={12} md={12} justifyContent="center">
-              <Grid item xs={12} md={12} marginTop="10px">
+            <Grid
+              container
+              xs={12}
+              md={12}
+              justifyContent="center"
+              marginTop="80px"
+            >
+              <Grid item xs={3} md={3} marginTop="10px">
                 {/* <DwvComponent fileimage={fileimage} /> */}
                 <input onChange={onSetFile} required type="file" />
               </Grid>
-              <Grid item marginTop="20px">
-                <Button
-                  type="submit"
-                  onClick={onbtndiagnosa}
-                  variant="contained"
-                  sx={{ background: "#e43d84" }}
-                >
-                  Detection
-                </Button>
-              </Grid>
-              <Grid item xs={1} md={1} />
-              <Grid item marginTop="20px">
-                <Button variant="contained" color="error">
-                  Cancel
-                </Button>
+
+              <Grid item xs={12} md={12} marginTop="20px">
+                <Grid container xs={12} md={12} justifyContent="center">
+                  <Grid item marginTop="20px">
+                    <Button
+                      type="submit"
+                      onClick={onbtndiagnosa}
+                      variant="contained"
+                      sx={{ background: "#e43d84" }}
+                    >
+                      Detection
+                    </Button>
+                  </Grid>
+                  <Grid item xs={1} md={1} marginTop="20px"></Grid>
+                  <Grid item marginTop="20px">
+                    <Button variant="contained" color="error">
+                      Cancel
+                    </Button>
+                  </Grid>
+                </Grid>
               </Grid>
             </Grid>
           </form>
