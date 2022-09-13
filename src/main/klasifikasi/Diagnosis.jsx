@@ -53,7 +53,7 @@ const Diagnosis = () => {
 
     console.log(state);
     axios
-      .post("http://localhost:5000/upload", data, {
+      .post("https://cancerpydara.herokuapp.com/upload", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
