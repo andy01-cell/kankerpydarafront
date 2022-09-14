@@ -1,5 +1,7 @@
 import {
+  Alert,
   Button,
+  Collapse,
   FormControl,
   Grid,
   IconButton,
@@ -25,6 +27,7 @@ const Registrasi = () => {
     username: "",
     phone: "",
     jenis_klmn: "",
+    errorlog: "",
   });
 
   const [values, setValues] = React.useState({
@@ -35,9 +38,18 @@ const Registrasi = () => {
     showPassword: false,
   });
 
+  const [open, setOpen] = React.useState(false);
+
   const postregister = () => {
     // const { email, password2 } = state;
-    createUserWithEmailAndPassword(auth, state.email, state.password2,state.username,state.phone,state.jenis_klmn)
+    createUserWithEmailAndPassword(
+      auth,
+      state.email,
+      state.password2,
+      state.username,
+      state.phone,
+      state.jenis_klmn
+    )
       .then((userCredential) => {
         // Signed in
         addDoc(collection(db, "Registrasi"), {
@@ -55,9 +67,11 @@ const Registrasi = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log("err = ", error);
+        state.errorlog = errorCode;
+        setOpen(true);
       });
 
-    console.log("data = ",state);
+    console.log("data = ", state);
   };
 
   const onHandledChanged = (event) => {
@@ -76,30 +90,27 @@ const Registrasi = () => {
   };
 
   return (
-    <Grid container justifyContent="center" direction="row">
-      <Grid
-        item
-        xs={4}
-        md={4}
-        justifySelf="center"
-        style={{
-          // background: "#C16C6C",
-          // height: "100vh",
-          // width: "100vw",
-          paddingTop: "10vh",
-        }}
-      >
-        <Paper
-          elevation={10}
-          style={{
-            height: "78vh",
-          }}
-        >
+    <Grid
+      container
+      xs={12}
+      md={12}
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      style={{ height: "100vh" }}
+    >
+      <Grid item xs={4} md={4}>
+        <Paper elevation={10}>
           <Grid container justifyContent="center" alignItems="center">
             <Grid item xs={12} md={12} justifySelf="center">
               <Typography textAlign="center" fontSize="20px" marginTop="30px">
-                Sign Up
+                <b>Sign Up</b>
               </Typography>
+            </Grid>
+            <Grid item xs={8} md={8}>
+              <Collapse in={open}>
+                <Alert severity="error">{state.errorlog}</Alert>
+              </Collapse>
             </Grid>
             <Grid item xs={8} md={8} marginTop="20px">
               <TextField
@@ -182,7 +193,14 @@ const Registrasi = () => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={5} md={5} display="flex" marginTop="20px">
+            <Grid
+              item
+              xs={5}
+              md={5}
+              display="flex"
+              marginTop="20px"
+              marginBottom="3ch"
+            >
               <Button
                 variant="contained"
                 type="submit"

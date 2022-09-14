@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import { Box, Button, Paper } from "@mui/material";
+import {
+  Backdrop,
+  Box,
+  Button,
+  CircularProgress,
+  Paper,
+  Typography,
+} from "@mui/material";
 import axios from "axios";
 import DwvComponent from "../imagedicom/DwvComponent";
 import { bgall } from "../../assets/exportimage";
@@ -14,6 +21,7 @@ const Diagnosis = () => {
   const [state, setState] = useState({
     imgdicom: "",
     imgkanker: "",
+    errorlog: "",
   });
 
   // useEffect(() => {
@@ -45,6 +53,14 @@ const Diagnosis = () => {
   // const rrequired = () => {
   //   onbtndiagnosa();
   // };
+
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   const onbtndiagnosa = (e) => {
     e.preventDefault();
@@ -119,6 +135,9 @@ const Diagnosis = () => {
       })
       .catch((err) => {
         console.log("ERRRR:: ", err.response);
+        // errorlog(err.response.data.message);
+        state.errorlog = err.response.data.message;
+        handleClose();
         // console.log("gambar:: ", state.imgdicom);
       });
   };
@@ -159,18 +178,34 @@ const Diagnosis = () => {
                 {/* <DwvComponent fileimage={fileimage} /> */}
                 <input onChange={onSetFile} required type="file" />
               </Grid>
-
+              <Grid item xs={12} md={12} />
+              <Grid item xs={3} md={3}>
+                <Typography color="red" fontSize="13px">
+                  {state.errorlog}
+                </Typography>
+              </Grid>
               <Grid item xs={12} md={12} marginTop="20px">
                 <Grid container xs={12} md={12} justifyContent="center">
                   <Grid item marginTop="20px">
                     <Button
                       type="submit"
                       onClick={onbtndiagnosa}
+                      onClickCapture={handleToggle}
                       variant="contained"
                       sx={{ background: "#e43d84" }}
                     >
                       Detection
                     </Button>
+                    <Backdrop
+                      sx={{
+                        color: "#fff",
+                        zIndex: (theme) => theme.zIndex.drawer + 1,
+                      }}
+                      open={open}
+                      onClick={handleClose}
+                    >
+                      <CircularProgress color="inherit" />
+                    </Backdrop>
                   </Grid>
                   <Grid item xs={1} md={1} marginTop="20px"></Grid>
                   <Grid item marginTop="20px">

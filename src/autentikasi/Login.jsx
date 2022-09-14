@@ -3,15 +3,18 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { logo } from "../assets/exportimage";
 import {
+  Alert,
   Avatar,
   Box,
   Button,
+  Collapse,
   FormControl,
   IconButton,
   InputAdornment,
   InputLabel,
   OutlinedInput,
   Paper,
+  Stack,
   TextField,
 } from "@mui/material";
 import { useState } from "react";
@@ -20,12 +23,14 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/Firebase";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Login = () => {
   const navigate = useNavigate();
   const [state, setState] = useState({
     email: "",
     password2: "",
+    errorlog: "",
   });
 
   const [values, setValues] = React.useState({
@@ -35,6 +40,8 @@ const Login = () => {
     weightRange: "",
     showPassword: false,
   });
+
+  const [open, setOpen] = React.useState(false);
 
   const onbuttonauth = () => {
     signInWithEmailAndPassword(auth, state.email, state.password2)
@@ -49,7 +56,9 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log("err = ", error);
+        state.errorlog = errorCode;
+        console.log("err = ", errorCode);
+        setOpen(true);
       });
   };
 
@@ -71,25 +80,17 @@ const Login = () => {
   };
 
   return (
-    <Grid container xs={12} md={12} justifyContent="center" direction="row">
-      <Grid
-        item
-        xs={4}
-        md={4}
-        justifySelf="center"
-        style={{
-          // background: "#C16C6C",
-          // height: "100vh",
-          // width: "100vw",
-          paddingTop: "10vh",
-        }}
-      >
-        <Paper
-          elevation={10}
-          style={{
-            height: "78vh",
-          }}
-        >
+    <Grid
+      container
+      xs={12}
+      md={12}
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      style={{ height: "100vh" }}
+    >
+      <Grid item xs={4} md={4}>
+        <Paper elevation={10}>
           <Grid
             container
             xs={12}
@@ -115,6 +116,11 @@ const Login = () => {
                 src={logo}
               />
             </Grid>
+            <Grid item xs={8} md={8}>
+              <Collapse in={open}>
+                <Alert severity="error">{state.errorlog}</Alert>
+              </Collapse>
+            </Grid>
             <Grid item xs={8} md={8} marginTop="20px">
               <TextField
                 autoComplete="email"
@@ -128,6 +134,7 @@ const Login = () => {
                 type="email"
               />
             </Grid>
+
             <Grid item xs={8} md={8} marginTop="20px">
               <FormControl variant="outlined" size="small" fullWidth>
                 <InputLabel htmlFor="outlined-adornment-password">
@@ -175,7 +182,14 @@ const Login = () => {
                 Login
               </Button>
             </Grid>
-            <Grid item xs={12} md={12} justifySelf="center" marginTop="15px">
+            <Grid
+              item
+              xs={12}
+              md={12}
+              justifySelf="center"
+              marginTop="15px"
+              marginBottom="3ch"
+            >
               <Typography textAlign="center" fontSize="18px">
                 Create Account ? &nbsp;
                 <b
