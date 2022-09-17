@@ -284,63 +284,6 @@ const Characteristic = () => {
               </Grid>
             </Paper>
           </Grid>
-          <Grid item xs={1} md={0.3}></Grid>
-          <Grid item xs={3.8} md={3.8}>
-            <Paper
-              elevation={10}
-              style={{
-                height: "420px",
-                width: "350px",
-                borderRadius: "15px",
-              }}
-            >
-              <Grid
-                container
-                justifyContent="center"
-                direction={{
-                  xs: "column-reverse",
-                  md: "row",
-                }}
-                xs={12}
-                md={12}
-              >
-                <Grid item xs={11} md={10.5}>
-                  <Box
-                    component="img"
-                    sx={{
-                      width: {
-                        md: 350,
-                        xs: 60,
-                      },
-                    }}
-                    alt="The house from the offer."
-                    src={karakteristik5}
-                  />
-                </Grid>
-                <Grid item xs={12} md={12} />
-                <Grid item xs={10} md={10} marginTop="30px">
-                  <Typography
-                    variant="p"
-                    fontSize="25px"
-                    fontFamily="sans-serif"
-                    textAlign="justify"
-                    color="#223a66"
-                  >
-                    <b>Normal</b> <br />
-                  </Typography>
-                  <Typography
-                    fontFamily="sans-serif"
-                    fontSize="16px"
-                    textAlign="justify"
-                    marginTop="25px"
-                    color="#6F8BA4"
-                  >
-                    Tidak terdapat tanda-tanda kanker payudara apapun
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Paper>
-          </Grid>
         </Grid>
       </Grid>
     </Grid>

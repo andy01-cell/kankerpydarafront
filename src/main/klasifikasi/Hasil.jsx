@@ -61,10 +61,12 @@ const Hasil = () => {
                     },
                   }}
                   alt="The house from the offer."
-                  src={"https://cancerpydara.herokuapp.com//static/clasifer/clasifier.jpg"}
+                  src={
+                    "https://cancerpydara.herokuapp.com//static/clasifer/clasifier.jpg"
+                  }
                 />
               </Grid>
-              <Grid item xs={12} md={12} marginTop="20px">
+              <Grid item xs={6} md={6} marginTop="20px">
                 <Typography
                   variant="p"
                   fontSize="20px"
@@ -73,6 +75,20 @@ const Hasil = () => {
                 >
                   <b>{datapredik.state.lvlkanker}</b>
                 </Typography>
+              </Grid>
+              <Grid item xs={3} md={3} marginTop="15px">
+                <Box
+                  sx={{
+                    p: 1,
+                    // height: "10px",
+                    background: "#e43d84",
+                    color: "white",
+                    borderRadius: "50px",
+                  }}
+                  textAlign="center"
+                >
+                  {datapredik.state.hasilakurasi}%
+                </Box>
               </Grid>
             </Grid>
           </Grid>

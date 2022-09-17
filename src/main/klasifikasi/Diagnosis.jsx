@@ -82,6 +82,7 @@ const Diagnosis = () => {
         state.imgkanker = res.data;
         console.log(" succes : ", state.imgkanker.prediksi);
         const hasilprediksi = res.data.prediksi;
+        const hasilakurasi = res.data.akurasi;
         if (hasilprediksi == "stadium 1") {
           lvlkanker = "STADIUM 1";
           healsolusi =
@@ -90,6 +91,7 @@ const Diagnosis = () => {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
+              hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
             },
           });
         } else if (hasilprediksi == "stadium 2") {
@@ -100,6 +102,7 @@ const Diagnosis = () => {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
+              hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
             },
           });
         } else if (hasilprediksi == "stadium 3") {
@@ -110,6 +113,7 @@ const Diagnosis = () => {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
+              hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
             },
           });
         } else if (hasilprediksi == "stadium 4") {
@@ -120,6 +124,7 @@ const Diagnosis = () => {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
+              hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
             },
           });
         } else {
@@ -129,6 +134,7 @@ const Diagnosis = () => {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
+              hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
             },
           });
         }
