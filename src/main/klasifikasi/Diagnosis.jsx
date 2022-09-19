@@ -7,6 +7,7 @@ import {
   Button,
   CircularProgress,
   Paper,
+  TextField,
   Typography,
 } from "@mui/material";
 import axios from "axios";
@@ -22,6 +23,10 @@ const Diagnosis = () => {
     imgdicom: "",
     imgkanker: "",
     errorlog: "",
+    namapasien: "",
+    umurpasien: "",
+    tgllahir: "",
+    nomedis: "",
   });
 
   // useEffect(() => {
@@ -41,6 +46,13 @@ const Diagnosis = () => {
   //       console.log("ERRRR:: ", err);
   //     });
   // }, []);
+  const onHandledChanged = (event) => {
+    const name = event.target.name;
+    setState({
+      ...state,
+      [name]: event.target.value,
+    });
+  };
 
   const onSetFile = (e) => {
     const file = e.target.files[0];
@@ -144,7 +156,6 @@ const Diagnosis = () => {
         // errorlog(err.response.data.message);
         state.errorlog = err.response.data.message;
         handleClose();
-        // console.log("gambar:: ", state.imgdicom);
       });
   };
 
@@ -173,14 +184,67 @@ const Diagnosis = () => {
           }}
         >
           <form onSubmit={onbtndiagnosa} encType="multipart/form-data">
-            <Grid
-              container
-              xs={12}
-              md={12}
-              justifyContent="center"
-              marginTop="80px"
-            >
-              <Grid item xs={3} md={3} marginTop="10px">
+            <Grid container xs={12} md={12} justifyContent="center">
+              <Grid item xs={12} md={12} justifySelf="center">
+                <Typography textAlign="center" fontSize="20px" marginTop="20px">
+                  <b>Masukkan Data Pasien</b>
+                </Typography>
+              </Grid>
+              <Grid item xs={5} md={5} marginTop="20px">
+                <TextField
+                  autoComplete="namapasien"
+                  name="namapasien"
+                  required
+                  id="namapasien"
+                  onChange={onHandledChanged}
+                  label="Nama Pasien"
+                  size="small"
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={1} md={1}></Grid>
+              <Grid item xs={5} md={5} marginTop="20px">
+                <TextField
+                  autoComplete="umurpasien"
+                  name="umurpasien"
+                  required
+                  id="umurpasien"
+                  onChange={onHandledChanged}
+                  label="Umur Pasien"
+                  size="small"
+                  fullWidth
+                  type="number"
+                />
+              </Grid>
+              <Grid item xs={5} md={5} marginTop="20px">
+                <TextField
+                  autoComplete="tgllahir"
+                  name="tgllahir"
+                  required
+                  id="tgllahir"
+                  onChange={onHandledChanged}
+                  label="Tanggal Lahir"
+                  size="small"
+                  fullWidth
+                  type="date"
+                  InputLabelProps={{ shrink: true, required: true }}
+                />
+              </Grid>
+              <Grid item xs={1} md={1}></Grid>
+              <Grid item xs={5} md={5} marginTop="20px">
+                <TextField
+                  autoComplete="nomedis"
+                  name="nomedis"
+                  required
+                  id="nomedis"
+                  onChange={onHandledChanged}
+                  label="No.Rekam Medis"
+                  size="small"
+                  fullWidth
+                  type="number"
+                />
+              </Grid>
+              <Grid item xs={2.2} md={2.2} marginTop="20px">
                 {/* <DwvComponent fileimage={fileimage} /> */}
                 <input onChange={onSetFile} required type="file" />
               </Grid>
@@ -190,7 +254,7 @@ const Diagnosis = () => {
                   {state.errorlog}
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={12} marginTop="20px">
+              <Grid item xs={12} md={12} marginTop="20px" marginBottom="3ch">
                 <Grid container xs={12} md={12} justifyContent="center">
                   <Grid item marginTop="20px">
                     <Button
@@ -212,12 +276,6 @@ const Diagnosis = () => {
                     >
                       <CircularProgress color="inherit" />
                     </Backdrop>
-                  </Grid>
-                  <Grid item xs={1} md={1} marginTop="20px"></Grid>
-                  <Grid item marginTop="20px">
-                    <Button variant="contained" color="error">
-                      Cancel
-                    </Button>
                   </Grid>
                 </Grid>
               </Grid>
