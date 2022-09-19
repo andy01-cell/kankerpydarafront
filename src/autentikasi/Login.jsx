@@ -167,7 +167,14 @@ const Login = () => {
                 />
               </FormControl>
             </Grid>
-            <Grid item xs={5} md={5} display="flex" marginTop="20px">
+            <Grid
+              item
+              xs={5}
+              md={5}
+              display="flex"
+              marginTop="20px"
+              marginBottom="3ch"
+            >
               <Button
                 variant="contained"
                 type="onSubmit"
@@ -181,27 +188,6 @@ const Login = () => {
               >
                 Login
               </Button>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              md={12}
-              justifySelf="center"
-              marginTop="15px"
-              marginBottom="3ch"
-            >
-              <Typography textAlign="center" fontSize="18px">
-                Create Account ? &nbsp;
-                <b
-                  style={{
-                    cursor: "pointer",
-                    color: "black",
-                  }}
-                  onClick={() => navigate("/Registrasi")}
-                >
-                  Sign Up
-                </b>
-              </Typography>
             </Grid>
           </Grid>
         </Paper>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Login from "./autentikasi/Login";
-import Registrasi from "./autentikasi/Registrasi";
 import About from "./main/Tentang/About";
 import Diagnosis from "./main/klasifikasi/Diagnosis";
 import Navbar from "./main/Navbar";
@@ -22,9 +21,7 @@ const Routerapp = () => {
         <Route path="/Hasil" element={<Hasil />} />
       </Route>
       <Route path="/Login" element={<Login />} />
-      <Route path="/Registrasi" element={<Registrasi />} />
       <Route path="/Testappbar" element={<Testappbar />} />
-
     </Routes>
   );
 };
