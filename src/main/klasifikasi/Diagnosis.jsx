@@ -91,62 +91,132 @@ const Diagnosis = () => {
         console.log("post succes : ", res);
         let lvlkanker;
         let healsolusi;
+        let diagnosa;
+        let catatan1;
+        let catatan2;
+        let catatan3;
         state.imgkanker = res.data;
         console.log(" succes : ", state.imgkanker.prediksi);
         const hasilprediksi = res.data.prediksi;
         const hasilakurasi = res.data.akurasi;
         if (hasilprediksi == "stadium 1") {
           lvlkanker = "STADIUM 1";
+          diagnosa =
+            "Stadium I merupakan tahap paling awal dari kanker payudara yang berpotensi menyebar (invasif). Pada tahap ini, ukuran tumor masih sangat kecil ukuran kurang dari 2 cm dan belum menyebar ke kelenjar getah bening. Ditemukan sekelompok sel kanker dengan ukuran antara 0,2 milimeter sampai 2 milimeter di kelenjar getah bening. Pemeriksaan kanker payudara kurang lebih sebesar biji kurma yang akan merasakan sakit/nyeri, payudara membengkak atau memerah, puting payudara mengeluarkan cairan meski tidak menyusui. ";
           healsolusi =
             "Pada tahap ini, pengobatannya dilakukan adalah operasi pengangkatan sel kanker dilanjutkan dengan terapi radiasi pada area yang sebelumnya terserang kanker. Pada tahap ini, terapi hormon dan kemoterapi juga mungkin dianjurkan untuk mengurangi risiko kanker tumbuh kembali.";
-          navigate("/hasil", {
+          catatan1 =
+            "Pasien mengalami kanker payudara STADIUM 1 , dengan ini pasien harus mengonsumsi obat dari resep dokter dan menjalani terapi.";
+          catatan2 =
+            "Penyakit yang di derita pasien mulai menyebar area puting payudara dan bisa merusak otak.";
+          catatan3 =
+            "Pada penyakit kanker payudara STADIUM 1 yang memiliki 3 bakteri.";
+          navigate("/Hasildiagnosa", {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
               hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
+              nama: state.namapasien,
+              umur: state.umurpasien,
+              tgl: state.tgllahir,
+              medis: state.nomedis,
+              diagnosa: diagnosa,
+              catatan1: catatan1,
+              catatan2: catatan2,
+              catatan3: catatan3,
             },
           });
         } else if (hasilprediksi == "stadium 2") {
           lvlkanker = "STADIUM 2";
+          diagnosa =
+            "Stadium 2 merupakan masih dikatakan kanker payudara invasif dan stadium ini masih dalam tahap awal. Pada stadium II, ukuran tumor sudah lebih besar daripada stadium sebelumnya dengan ukuran 2-5 cm. Sel kanker pun sudah menyebar ke kelenjar getah bening, walau masih di area yang terdekat, tetapi belum menyebar ke bagian tubuh yang lebih jauh. Ditemukan sekelompok sel kanker payudara dengan ukuran antara 0,2-2 milimeter di antara 1-3 kelenjar getah bening, Ada tumor dengan ukuran lebih dari 5 centimeter tapi sel kanker belum menyebar ke kelenjar getah bening di ketiak.";
           healsolusi =
             "Cara mengobati kanker payudara pada stadium ini bisa dilakukan dengan pembedahan atau pengangkatan tumor, terapi radiasi, pengangkatan payudara (masektomi), kemoterapi untuk mengecilkan ukuran payudara sebelum operasi, serta terapi hormon dan terapi bertarget. ";
-          navigate("/hasil", {
+          catatan1 =
+            "Pasien mengalami kanker payudara STADIUM 2, dengan ini pasien harus mengonsumsi obat dari resep dokter dan menjalani terapi.";
+          catatan2 =
+            "Angka harapan hidup bagi pengidap kanker payudara STADIUM 2 bisa mencapai 80% dalam 5 tahun pengobatan.";
+          catatan3 =
+            "Pasien penyakit kanker payudara STADIUM 2 pengobatan yang diberikan yaitu operasi kanker payudara.";
+          navigate("/Hasildiagnosa", {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
               hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
+              nama: state.namapasien,
+              umur: state.umurpasien,
+              tgl: state.tgllahir,
+              medis: state.nomedis,
+              diagnosa: diagnosa,
+              catatan1: catatan1,
+              catatan2: catatan2,
+              catatan3: catatan3,
             },
           });
         } else if (hasilprediksi == "stadium 3") {
           lvlkanker = "STADIUM 3";
+          diagnosa =
+            "Stadium 3 disebut juga dengan kanker payudara stadium lanjut lokal. Artinya, tumor ganas atau benjolan yang ditemukan bisa lebih besar dengan ukuran lebih dari 5 cm, belum menginfiltrasi jaringan sekitar payudara dan sudah ada penyebaran ke kelenjar getah bening ketiak. Pada tahap ini, Kanker menyebar sampai ke sembilan kelenjar getah bening di ketiak atau dekat tulang dada Sebagian besar kulit payudara kemerahan, Payudara terasa panas dan bengkak.";
           healsolusi =
-            "Pengobatan untuk kanker payudara stadium 3 biasanya melibatkan kombinasi operasi (lumpektomi atau mastektomi) dan kemoterapi untuk mengecilkan tumor sebelum operasi. Setelah itu, dilanjutkan dengan terapi radiasi pada dinding dada atau kelenjar getah bening.";
-          navigate("/hasil", {
+            "Pada tahap ini, ukurannya > 5 cm dimana sudah ada infiltrasi di jaringan sekitar daerah puting dan kulit payudara, sehingga tumor tidak bisa dilakukan reseksi/operasi. Perlu dilakukan kemoterapi terlebih dahulu disebut sebagai kemoterapi neoadjuvant. Setelah itu dilakukan penilaian respon, apabila respon baik terapi dapat dilanjukan dengan pembedahan (mastektomi radikal).";
+          catatan1 =
+            "Pasien mengalami kanker payudara STADIUM 3 sudah tidak melakukan operasi maka dari itu disarankan melakukan kemoterapi.";
+          catatan2 =
+            "Penyakit yang di derita pasien mulai menyebar ke seluruh jaringan pada payudara.";
+          catatan3 =
+            "Pada penyakit kanker payudara STADIUM 3 memiliki angka hidup sekitar 30% - 50%.";
+          navigate("/Hasildiagnosa", {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
               hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
+              nama: state.namapasien,
+              umur: state.umurpasien,
+              tgl: state.tgllahir,
+              medis: state.nomedis,
+              diagnosa: diagnosa,
+              catatan1: catatan1,
+              catatan2: catatan2,
+              catatan3: catatan3,
             },
           });
         } else if (hasilprediksi == "stadium 4") {
           lvlkanker = "STADIUM 4";
+          diagnosa =
+            "Stadium 4 merupakan tahap paling akhir dan merupakan kondisi serius yang mengancam jiwa. Pasien kanker payudara stadium IV4 atau metastatis memang tidak dapat disembuhkan total. Pada stadium ini, kanker telah menyebar dari payudara dan kelenjar getah bening di sekitarnya ke organ tubuh lain, seperti paru-paru, kelenjar getah bening yang jauh dari payudara, kulit, tulang, hati, atau otak.";
           healsolusi =
-            "Pilihan pengobatan untuk kanker payudara stadium 4 bertujuan untuk meringankan gejala, meningkatkan kualitas hidup, dan memperpanjang rentang hidup. Cara pengobatan kanker payudara yang bisa dilakukan meliputi terapi hormon, terapi bertarget, kemoterapi, imunoterapi, radiasi, atau pembedahan.";
-          navigate("/hasil", {
+            "Pada tahap ini, pengobatan tetap perlu dijalani untuk meringankan gejala, meningkatkan kualitas hidup, serta memperpanjang angka harapan hidup, dengan mengecilkan dan memperlambat pertumbuhan sel kanker.";
+          catatan1 =
+            "Pasien mengalami kanker payudara STADIUM 4 yang sudah tidak bisa lagi dioperasi.";
+          catatan2 =
+            "Angka harapan hidupnya pun hanya sekitar 20% - 25% yang bisa bertahan selama 5 tahun setelah di diagnosis.";
+          navigate("/Hasildiagnosa", {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
               hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
+              nama: state.namapasien,
+              umur: state.umurpasien,
+              tgl: state.tgllahir,
+              medis: state.nomedis,
+              diagnosa: diagnosa,
+              catatan1: catatan1,
+              catatan2: catatan2,
+              catatan3: catatan3,
             },
           });
         } else {
           lvlkanker = "NORMAL";
           healsolusi = "-";
-          navigate("/hasil", {
+          navigate("/Hasildiagnosa", {
             state: {
               lvlkanker: lvlkanker,
               healsolusi: healsolusi,
               hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
+              nama: state.namapasien,
+              umur: state.umurpasien,
+              tgl: state.tgllahir,
+              medis: state.nomedis,
             },
           });
         }

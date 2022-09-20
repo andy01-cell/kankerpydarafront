@@ -18,6 +18,8 @@ import contoh_hasil from "../assets/contoh_hasil.jpg";
 import contoh_hasil2 from "../assets/contoh_hasil2.jpg";
 import contoh_hasil3 from "../assets/contoh_hasil3.jpg";
 import contoh_hasil4 from "../assets/contoh_hasil4.jpg";
+import logoprint1 from "../assets/logoprint1.png";
+import logoprint2 from "../assets/logoprint2.png";
 
 export {
   logo,
@@ -40,4 +42,6 @@ export {
   contoh_hasil2,
   contoh_hasil3,
   contoh_hasil4,
+  logoprint1,
+  logoprint2,
 };

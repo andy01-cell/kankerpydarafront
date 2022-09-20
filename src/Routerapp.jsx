@@ -8,6 +8,7 @@ import Hasil from "./main/klasifikasi/Hasil";
 import Characteristic from "./main/karakteristik/Characteristic";
 import Home from "./main/Homes/Home";
 import Testappbar from "./main/Testappbar";
+import Hasildiagnosa from "./main/klasifikasi/Hasildiagnosa";
 
 const Routerapp = () => {
   return (
@@ -22,6 +23,7 @@ const Routerapp = () => {
       </Route>
       <Route path="/Login" element={<Login />} />
       <Route path="/Testappbar" element={<Testappbar />} />
+      <Route path="/Hasildiagnosa" element={<Hasildiagnosa />} />
     </Routes>
   );
 };

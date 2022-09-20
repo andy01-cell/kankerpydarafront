@@ -1,12 +1,10 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import { Paper } from "@mui/material";
-import { bgall, contoh_hasil4 } from "../../assets/exportimage";
-import { Navigate, useLocation } from "react-router-dom";
+import { bgall } from "../../assets/exportimage";
+import { useLocation } from "react-router-dom";
 
 const Hasil = () => {
   let imagedicom = localStorage.getItem("gambar");
