@@ -177,7 +177,7 @@ const Home = () => {
                         textAlign="justify"
                         color="#6F8BA4"
                       >
-                        Timing schedule <br />
+                        Jadwal Waktu <br />
                       </Typography>
                       <Typography
                         variant="p"
@@ -186,7 +186,7 @@ const Home = () => {
                         textAlign="justify"
                         color="#223a66"
                       >
-                        <b>Working Hours</b> <br />
+                        <b>Jam Kerja</b> <br />
                       </Typography>
                       <Typography
                         fontFamily="sans-serif"
@@ -197,13 +197,13 @@ const Home = () => {
                       >
                         Senin - Rabu :
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;8:00 -
-                        17:00
+                        16:00
                         <hr />
                         Kamis - Jum'at :
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;9:00 - 17:00
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;9:00 - 16:00
                         <hr />
                         Sabtu - Minggu : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        10:00 - 17:00
+                        10:00 - 16:00
                         <hr />
                       </Typography>
                     </Grid>
@@ -277,8 +277,8 @@ const Home = () => {
                         the principle of family medicine.Get Conneted with us
                         for any urgency . */}
                         Dapatkan dukungan sepanjang waktu untuk keadaan
-                        darurat.Kami telah memperkenalkan prinsip pengobatan
-                        keluarga.Terhubunglah dengan kami untuk segala urgensi.
+                        darurat. Kami telah memperkenalkan prinsip pengobatan
+                        keluarga. Terhubunglah dengan kami untuk segala urgensi.
                       </Typography>
                     </Grid>
                   </Grid>

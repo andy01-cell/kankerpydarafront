@@ -38,7 +38,7 @@ const About = () => {
               marginTop="25px"
               color="#6F8BA4"
             >
-              Sistem Breast Cancer merupakan sistem yang dapat mendeteksi kanker
+              Sistem <i>MammoBreast</i> merupakan sistem yang dapat mendeteksi kanker
               payudara, mengetahui stadium, dan informasi mengenai kanker
               payudara. Pencegahan kanker payudara dapat dilakukan dengan
               pemeriksaan payudara secara mandiri atau pemeriksaan oleh petugas

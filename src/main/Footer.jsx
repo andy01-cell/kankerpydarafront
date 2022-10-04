@@ -34,10 +34,11 @@ const Footer = () => {
               marginTop="25px"
               color="#6F8BA4"
             >
-              Visi: Menjadi Academic Health Center Terkemuka di Indonesia. Misi:
-              menyelenggarakan pelayanan, pendidikan dan penelitian di bidang
-              kesehatan berkualitas yang berintegrasi Holistic dan Profesional,
-              mengampu rumah sakit jejaring wilayah di Indonesia Timur.
+              Visi: Menjadi Pusat Kesehatan Akademi Terkemuka di Indonesia.
+              Misi: menyelenggarakan pelayanan, pendidikan dan penelitian di
+              bidang kesehatan berkualitas yang berintegrasi Holistic dan
+              Profesional, terkhusus rumah sakit jejaring wilayah di Indonesia
+              Timur.
             </Typography>
           </Grid>
           <Grid item xs={1.4} md={1.4} marginTop="10ch">
@@ -70,7 +71,7 @@ const Footer = () => {
               Surgery <br />
               Wome's Health <br />
               Radiology <br />
-              Cardioc <br />
+              Breast Cancer <br />
               Medicine
             </Typography>
           </Grid>
@@ -108,7 +109,7 @@ const Footer = () => {
               Company Licence
             </Typography>
           </Grid>
-          <Grid item xs={2} md={2.5} marginTop="10ch">
+          <Grid item xs={2} md={2.65} marginTop="10ch">
             <Typography
               variant="p"
               fontSize="23px"
@@ -149,7 +150,7 @@ const Footer = () => {
                   //   lineHeight="35px"
                   alignItems="center"
                 >
-                  &emsp;Support Available for 24/7
+                  Dukungan Tersedia untuk 24/7
                 </Typography>
               </Grid>
               <Grid item>
@@ -184,7 +185,7 @@ const Footer = () => {
                   //   lineHeight="35px"
                   alignItems="center"
                 >
-                  &emsp;Mon to Fri : 08:30 - 18:00
+                  &emsp;Mon to Fri : 08:30 - 16:00
                 </Typography>
               </Grid>
               <Grid item>
@@ -203,7 +204,7 @@ const Footer = () => {
         </Grid>
       </Grid>
       <Grid item xs={10} md={10} marginTop="25px">
-        <hr  />
+        <hr />
         <Typography
           fontFamily="sans-serif"
           fontSize="18px"
