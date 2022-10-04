@@ -12,7 +12,7 @@ import bgall from "../assets/bgall.jpg";
 import karakteristik1 from "../assets/karakteristik/karakteristik1.jpeg";
 import karakteristik2 from "../assets/karakteristik/karakteristik2.jpeg";
 import karakteristik3 from "../assets/karakteristik/karakteristik3.jpeg";
-import karakteristik4 from "../assets/karakteristik/karakteristik4.jpeg";
+import karakteristik4 from "../assets/karakteristik/karakteristik4.jpg";
 import karakteristik5 from "../assets/karakteristik/normal.jpeg";
 import contoh_hasil from "../assets/contoh_hasil.jpg";
 import contoh_hasil2 from "../assets/contoh_hasil2.jpg";
