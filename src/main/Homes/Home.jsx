@@ -46,7 +46,9 @@ const Home = () => {
               color="#6F8BA4"
               letterSpacing="3px"
             >
-              TOTAL HEALTH CARE SOLUTION <br />
+              {/* TOTAL HEALTH CARE SOLUTION  */}
+              SOLUSI PERAWATAN KESEHATAN TOTAL
+              <br />
               <br />
             </Typography>
             <Typography
@@ -56,8 +58,10 @@ const Home = () => {
               color="#223a66"
             >
               <b>
-                Your Most Trusted <br />
-                Health Partner
+                {/* Your Most Trusted <br />
+                Health Partner */}
+                Terpercaya Sebagai <br />
+                Mitra Kesehatan
               </b>
             </Typography>
           </Grid>
@@ -104,7 +108,7 @@ const Home = () => {
                         textAlign="justify"
                         color="#6F8BA4"
                       >
-                        24 Hours Service <br />
+                        Layanan 24 Jam <br />
                       </Typography>
                       <Typography
                         variant="p"
@@ -113,7 +117,8 @@ const Home = () => {
                         textAlign="justify"
                         color="#223a66"
                       >
-                        <b>Online Appoinment</b> <br />
+                        {/* <b>Online Appoinment</b> <br /> */}
+                        <b>Secara Online</b> <br />
                       </Typography>
                       <Typography
                         fontFamily="sans-serif"
@@ -122,8 +127,10 @@ const Home = () => {
                         marginTop="25px"
                         color="#6F8BA4"
                       >
-                        Get all time support for emergency.We have introduced
-                        the principle of family medicine.
+                        {/* Get all time support for emergency.We have introduced
+                        the principle of family medicine. */}
+                        Dapatkan layanan sepanjang waktu untuk keadaan darurat.
+                        Kami telah memperkenalkan prinsip kedokteran keluarga.
                       </Typography>
                     </Grid>
                   </Grid>
@@ -188,17 +195,15 @@ const Home = () => {
                         marginTop="25px"
                         color="#6F8BA4"
                       >
-                        Sun - Wed :
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;8:00
-                        - 17:00
+                        Senin - Rabu :
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;8:00 -
+                        17:00
                         <hr />
-                        Thu - Fri :
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;9:00
-                        - 17:00
+                        Kamis - Jum'at :
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;9:00 - 17:00
                         <hr />
-                        Sat - sun :
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;10:00
-                        - 17:00
+                        Sabtu - Minggu : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        10:00 - 17:00
                         <hr />
                       </Typography>
                     </Grid>
@@ -248,7 +253,9 @@ const Home = () => {
                         textAlign="justify"
                         color="#6F8BA4"
                       >
-                        Emegency Cases <br />
+                        {/* Emegency Cases  */}
+                        Panggilan Darurat
+                        <br />
                       </Typography>
                       <Typography
                         variant="p"
@@ -266,9 +273,12 @@ const Home = () => {
                         marginTop="25px"
                         color="#6F8BA4"
                       >
-                        Get all time support for emergency.We have introduced
+                        {/* Get all time support for emergency.We have introduced
                         the principle of family medicine.Get Conneted with us
-                        for any urgency .
+                        for any urgency . */}
+                        Dapatkan dukungan sepanjang waktu untuk keadaan
+                        darurat.Kami telah memperkenalkan prinsip pengobatan
+                        keluarga.Terhubunglah dengan kami untuk segala urgensi.
                       </Typography>
                     </Grid>
                   </Grid>
@@ -321,11 +331,11 @@ const Home = () => {
           </Grid>
           <Grid item xs={3.8} md={3.8}>
             <Typography color="#223a66" fontSize="44px" fontFamily="sans-serif">
-              <b>Personal care & healthy living</b>
+              <b>Perawatan Pribadi & Hidup Sehat</b>
             </Typography>
             <Typography color="#6F8BA4" fontSize="16px" fontFamily="sans-serif">
-              We provide the best leading-edge medical services, especially in
-              the treatment of breast cancer.
+              Kami memberikan pelayanan medis terdepan yang terbaik, terutama
+              dalam pengobatan kanker payudara
             </Typography>
             <Button
               variant="contained"

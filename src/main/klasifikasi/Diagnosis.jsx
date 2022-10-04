@@ -27,6 +27,8 @@ const Diagnosis = () => {
     umurpasien: "",
     tgllahir: "",
     nomedis: "",
+    nik: "",
+    alamat: "",
   });
 
   // useEffect(() => {
@@ -250,7 +252,7 @@ const Diagnosis = () => {
             marginLeft: 25,
             marginRight: 25,
             padding: 15,
-            height: "50vh",
+            height: "60vh",
           }}
         >
           <form onSubmit={onbtndiagnosa} encType="multipart/form-data">
@@ -312,6 +314,32 @@ const Diagnosis = () => {
                   size="small"
                   fullWidth
                   type="number"
+                />
+              </Grid>
+              <Grid item xs={5} md={5} marginTop="20px">
+                <TextField
+                  autoComplete="nik"
+                  name="nik"
+                  required
+                  id="nik"
+                  onChange={onHandledChanged}
+                  label="NIK"
+                  size="small"
+                  fullWidth
+                  type="number"
+                />
+              </Grid>
+              <Grid item xs={1} md={1}></Grid>
+              <Grid item xs={5} md={5} marginTop="20px">
+                <TextField
+                  autoComplete="alamat"
+                  name="alamat"
+                  required
+                  id="alamat"
+                  onChange={onHandledChanged}
+                  label="Alamat"
+                  size="small"
+                  fullWidth
                 />
               </Grid>
               <Grid item xs={2.2} md={2.2} marginTop="20px">
