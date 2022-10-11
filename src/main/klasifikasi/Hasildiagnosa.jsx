@@ -96,24 +96,52 @@ const Hasildiagnosa = () => {
         <Grid item xs={12} md={6.4}>
           <Grid container justifyContent="space-between">
             <Grid item xs={6} md={6}>
-              <Typography
-                fontSize="15px"
-                sx={{ fontFamily: "Times New Roman" }}
-              >
-                Nama Pasien &emsp;&emsp;&emsp;: {datapredik.state.nama} <br />
-                No. Rekam Medis &emsp;: {datapredik.state.medis}
-              </Typography>
+              <Grid container xs={12} md={12}>
+                <Grid item xs={4.5} md={4.5}>
+                  No. Rekam Medis
+                  <br />
+                  Nama Pasien
+                  <br />
+                  Nik
+                </Grid>
+                <Grid item xs={0.3} md={0.3}>
+                  :
+                  <br />
+                  :
+                  <br />:
+                </Grid>
+                <Grid item xs={7.2} md={7.2}>
+                  {datapredik.state.medis}
+                  <br />
+                  {datapredik.state.nama}
+                  <br />
+                  {datapredik.state.nik}
+                </Grid>
+              </Grid>
             </Grid>
             <Grid item xs={6} md={6}>
-              <Typography
-                fontSize="15px"
-                sx={{ fontFamily: "Times New Roman" }}
-              >
-                Tanggal Lahir &emsp;: {datapredik.state.tgl}
-                <br />
-                Diagnosa&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
-                {datapredik.state.lvlkanker}
-              </Typography>
+              <Grid container xs={12} md={12}>
+                <Grid item xs={4.5} md={4.5}>
+                  Diagnosa
+                  <br />
+                  Tanggal Lahir
+                  <br />
+                  Alamat
+                </Grid>
+                <Grid item xs={0.3} md={0.3}>
+                  :
+                  <br />
+                  :
+                  <br />:
+                </Grid>
+                <Grid item xs={7.2} md={7.2}>
+                  {datapredik.state.lvlkanker}
+                  <br />
+                  {datapredik.state.tgl}
+                  <br />
+                  {datapredik.state.alamat}
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
@@ -218,12 +246,13 @@ const Hasildiagnosa = () => {
                 textAlign="justify"
                 sx={{ fontFamily: "Times New Roman" }}
               >
+                yang Bertanggung jawab<br />
                 Makassar,&emsp;&emsp;&emsp;&emsp; 20 &emsp;&emsp;&emsp;
                 <br />
                 <br />
                 <br />
                 <br />
-                (&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;)
+                (...................................)
               </Typography>
             </Grid>
           </Grid>
