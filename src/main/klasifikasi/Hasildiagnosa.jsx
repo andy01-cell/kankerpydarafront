@@ -246,7 +246,8 @@ const Hasildiagnosa = () => {
                 textAlign="justify"
                 sx={{ fontFamily: "Times New Roman" }}
               >
-                yang Bertanggung jawab<br />
+                Dokter Penanggung jawab
+                <br />
                 Makassar,&emsp;&emsp;&emsp;&emsp; 20 &emsp;&emsp;&emsp;
                 <br />
                 <br />
