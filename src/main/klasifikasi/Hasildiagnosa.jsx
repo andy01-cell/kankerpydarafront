@@ -98,11 +98,11 @@ const Hasildiagnosa = () => {
             <Grid item xs={6} md={6}>
               <Grid container xs={12} md={12}>
                 <Grid item xs={4.5} md={4.5}>
-                  No. Rekam Medis
+                  Nik
                   <br />
                   Nama Pasien
                   <br />
-                  Nik
+                  No. Rekam Medis
                 </Grid>
                 <Grid item xs={0.3} md={0.3}>
                   :
@@ -111,22 +111,22 @@ const Hasildiagnosa = () => {
                   <br />:
                 </Grid>
                 <Grid item xs={7.2} md={7.2}>
-                  {datapredik.state.medis}
+                  {datapredik.state.nik}
                   <br />
                   {datapredik.state.nama}
                   <br />
-                  {datapredik.state.nik}
+                  {datapredik.state.medis}
                 </Grid>
               </Grid>
             </Grid>
             <Grid item xs={6} md={6}>
               <Grid container xs={12} md={12}>
                 <Grid item xs={4.5} md={4.5}>
-                  Diagnosa
+                  Alamat
                   <br />
                   Tanggal Lahir
                   <br />
-                  Alamat
+                  Diagnosa
                 </Grid>
                 <Grid item xs={0.3} md={0.3}>
                   :
@@ -135,11 +135,11 @@ const Hasildiagnosa = () => {
                   <br />:
                 </Grid>
                 <Grid item xs={7.2} md={7.2}>
-                  {datapredik.state.lvlkanker}
+                  {datapredik.state.alamat}
                   <br />
                   {datapredik.state.tgl}
                   <br />
-                  {datapredik.state.alamat}
+                  {datapredik.state.lvlkanker}
                 </Grid>
               </Grid>
             </Grid>
