@@ -122,11 +122,11 @@ const Hasildiagnosa = () => {
             <Grid item xs={6} md={6}>
               <Grid container xs={12} md={12}>
                 <Grid item xs={4.5} md={4.5}>
-                  Alamat
+                  Umur
                   <br />
                   Tanggal Lahir
                   <br />
-                  Diagnosa
+                  Alamat
                 </Grid>
                 <Grid item xs={0.3} md={0.3}>
                   :
@@ -135,11 +135,11 @@ const Hasildiagnosa = () => {
                   <br />:
                 </Grid>
                 <Grid item xs={7.2} md={7.2}>
-                  {datapredik.state.alamat}
+                  {datapredik.state.umur}
                   <br />
                   {datapredik.state.tgl}
                   <br />
-                  {datapredik.state.lvlkanker}
+                  {datapredik.state.alamat}
                 </Grid>
               </Grid>
             </Grid>
@@ -206,7 +206,7 @@ const Hasildiagnosa = () => {
                 sx={{ fontFamily: "Times New Roman" }}
                 marginTop
               >
-                <b>Healing Solution :</b>
+                <b>Cara Penanganan :</b>
               </Typography>
               <Typography
                 fontSize="15px"

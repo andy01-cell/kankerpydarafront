@@ -122,8 +122,8 @@ const Diagnosis = () => {
               umur: state.umurpasien,
               tgl: state.tgllahir,
               medis: state.nomedis,
-              nik : state.nik,
-              alamat : state.alamat,
+              nik: state.nik,
+              alamat: state.alamat,
               diagnosa: diagnosa,
               catatan1: catatan1,
               catatan2: catatan2,
@@ -151,8 +151,8 @@ const Diagnosis = () => {
               umur: state.umurpasien,
               tgl: state.tgllahir,
               medis: state.nomedis,
-              nik : state.nik,
-              alamat : state.alamat,
+              nik: state.nik,
+              alamat: state.alamat,
               diagnosa: diagnosa,
               catatan1: catatan1,
               catatan2: catatan2,
@@ -180,8 +180,8 @@ const Diagnosis = () => {
               umur: state.umurpasien,
               tgl: state.tgllahir,
               medis: state.nomedis,
-              nik : state.nik,
-              alamat : state.alamat,
+              nik: state.nik,
+              alamat: state.alamat,
               diagnosa: diagnosa,
               catatan1: catatan1,
               catatan2: catatan2,
@@ -207,8 +207,8 @@ const Diagnosis = () => {
               umur: state.umurpasien,
               tgl: state.tgllahir,
               medis: state.nomedis,
-              nik : state.nik,
-              alamat : state.alamat,
+              nik: state.nik,
+              alamat: state.alamat,
               diagnosa: diagnosa,
               catatan1: catatan1,
               catatan2: catatan2,
@@ -272,14 +272,15 @@ const Diagnosis = () => {
               </Grid>
               <Grid item xs={5} md={5} marginTop="20px">
                 <TextField
-                  autoComplete="namapasien"
-                  name="namapasien"
+                  autoComplete="nik"
+                  name="nik"
                   required
-                  id="namapasien"
+                  id="nik"
                   onChange={onHandledChanged}
-                  label="Nama Pasien"
+                  label="NIK"
                   size="small"
                   fullWidth
+                  type="number"
                 />
               </Grid>
               <Grid item xs={1} md={1}></Grid>
@@ -298,6 +299,19 @@ const Diagnosis = () => {
               </Grid>
               <Grid item xs={5} md={5} marginTop="20px">
                 <TextField
+                  autoComplete="namapasien"
+                  name="namapasien"
+                  required
+                  id="namapasien"
+                  onChange={onHandledChanged}
+                  label="Nama Pasien"
+                  size="small"
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={1} md={1}></Grid>
+              <Grid item xs={5} md={5} marginTop="20px">
+                <TextField
                   autoComplete="tgllahir"
                   name="tgllahir"
                   required
@@ -310,7 +324,6 @@ const Diagnosis = () => {
                   InputLabelProps={{ shrink: true, required: true }}
                 />
               </Grid>
-              <Grid item xs={1} md={1}></Grid>
               <Grid item xs={5} md={5} marginTop="20px">
                 <TextField
                   autoComplete="nomedis"
@@ -319,19 +332,6 @@ const Diagnosis = () => {
                   id="nomedis"
                   onChange={onHandledChanged}
                   label="No.Rekam Medis"
-                  size="small"
-                  fullWidth
-                  type="number"
-                />
-              </Grid>
-              <Grid item xs={5} md={5} marginTop="20px">
-                <TextField
-                  autoComplete="nik"
-                  name="nik"
-                  required
-                  id="nik"
-                  onChange={onHandledChanged}
-                  label="NIK"
                   size="small"
                   fullWidth
                   type="number"
