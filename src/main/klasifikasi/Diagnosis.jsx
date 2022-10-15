@@ -286,15 +286,16 @@ const Diagnosis = () => {
               <Grid item xs={1} md={1}></Grid>
               <Grid item xs={5} md={5} marginTop="20px">
                 <TextField
-                  autoComplete="umurpasien"
-                  name="umurpasien"
+                  autoComplete="tgllahir"
+                  name="tgllahir"
                   required
-                  id="umurpasien"
+                  id="tgllahir"
                   onChange={onHandledChanged}
-                  label="Umur Pasien"
+                  label="Tanggal Lahir"
                   size="small"
                   fullWidth
-                  type="number"
+                  type="date"
+                  InputLabelProps={{ shrink: true, required: true }}
                 />
               </Grid>
               <Grid item xs={5} md={5} marginTop="20px">
@@ -312,16 +313,15 @@ const Diagnosis = () => {
               <Grid item xs={1} md={1}></Grid>
               <Grid item xs={5} md={5} marginTop="20px">
                 <TextField
-                  autoComplete="tgllahir"
-                  name="tgllahir"
+                  autoComplete="umurpasien"
+                  name="umurpasien"
                   required
-                  id="tgllahir"
+                  id="umurpasien"
                   onChange={onHandledChanged}
-                  label="Tanggal Lahir"
+                  label="Umur Pasien"
                   size="small"
                   fullWidth
-                  type="date"
-                  InputLabelProps={{ shrink: true, required: true }}
+                  type="number"
                 />
               </Grid>
               <Grid item xs={5} md={5} marginTop="20px">

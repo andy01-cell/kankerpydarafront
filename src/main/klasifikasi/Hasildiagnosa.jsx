@@ -122,9 +122,9 @@ const Hasildiagnosa = () => {
             <Grid item xs={6} md={6}>
               <Grid container xs={12} md={12}>
                 <Grid item xs={4.5} md={4.5}>
-                  Umur
-                  <br />
                   Tanggal Lahir
+                  <br />
+                  Umur
                   <br />
                   Alamat
                 </Grid>
@@ -135,9 +135,9 @@ const Hasildiagnosa = () => {
                   <br />:
                 </Grid>
                 <Grid item xs={7.2} md={7.2}>
-                  {datapredik.state.umur}
-                  <br />
                   {datapredik.state.tgl}
+                  <br />
+                  {datapredik.state.umur}
                   <br />
                   {datapredik.state.alamat}
                 </Grid>
