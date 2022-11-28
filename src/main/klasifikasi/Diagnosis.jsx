@@ -370,7 +370,7 @@ const Diagnosis = () => {
                       variant="contained"
                       sx={{ background: "#e43d84" }}
                     >
-                      Detection
+                      Classification
                     </Button>
                     <Backdrop
                       sx={{
