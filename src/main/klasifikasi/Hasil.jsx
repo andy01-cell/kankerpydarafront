@@ -59,9 +59,9 @@ const Hasil = () => {
                     },
                   }}
                   alt="The house from the offer."
-                  src={
-                    "https://cancerpydara.herokuapp.com//static/clasifer/clasifier.jpg"
-                  }
+                  // src={
+                  //   "https://cancerpydara.herokuapp.com//static/clasifer/clasifier.jpg"
+                  // }
                 />
               </Grid>
               <Grid item xs={6} md={6} marginTop="20px">

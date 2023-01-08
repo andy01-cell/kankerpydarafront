@@ -175,9 +175,7 @@ const Hasildiagnosa = () => {
                   },
                 }}
                 alt="The house from the offer."
-                src={
-                  "https://cancerpydara.herokuapp.com//static/clasifer/clasifier.jpg"
-                }
+                src={"http://localhost:5000//static/clasifer/clasifier.jpg"}
               />
               <Typography
                 fontSize="17px"
