@@ -23,37 +23,143 @@ const Diagnosis = () => {
     imgdicom: "",
     imgkanker: "",
     errorlog: "",
+    nik: "",
+    tgllahir: "",
     namapasien: "",
     umurpasien: "",
-    tgllahir: "",
     nomedis: "",
-    nik: "",
     alamat: "",
   });
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:5000/prediksi", {
-  //       headers: {
-  //         "Content-Type": "multipart/form-data",
-  //       },
-  //     })
-  //     .then((response) => {
-  //       // check if the data is populated
-  //       console.log("table =", response);
-  //       // setStock(response.data.responseData.data);
-  //       // console.log("namalengkap =", stockdatapegawai);
-  //     })
-  //     .catch((err) => {
-  //       console.log("ERRRR:: ", err);
-  //     });
-  // }, []);
+  const [errors, setErrors] = useState({
+    nik: "",
+    tgllahir: "",
+    namapasien: "",
+    umurpasien: "",
+    nomedis: "",
+    alamat: "",
+  });
+
+  const validateNik = (nik) => {
+    console.log("nik");
+    if (!nik) {
+      setErrors((errors) => ({ ...errors, nik: "Nik harus diisi" }));
+      return false;
+    } else if (nik.length != 16) {
+      setErrors((errors) => ({ ...errors, nik: "Nik harus 16 digit" }));
+      return false;
+    } else {
+      setErrors((errors) => ({ ...errors, nik: "" }));
+      return true;
+    }
+  };
+  const validatetgl = (tgllahir) => {
+    console.log("tgl");
+    if (!tgllahir) {
+      setErrors((errors) => ({
+        ...errors,
+        tgllahir: "Tanggal lahir harus diisi",
+      }));
+      return false;
+    } else {
+      setErrors((errors) => ({ ...errors, tgllahir: "" }));
+      return true;
+    }
+  };
+  const validateNama = (namapasien) => {
+    console.log("nama");
+    if (!namapasien) {
+      setErrors((errors) => ({ ...errors, namapasien: "Nama harus diisi" }));
+      return false;
+    } else if (namapasien.length < 3) {
+      setErrors((errors) => ({
+        ...errors,
+        namapasien: "Nama minimal 3 karakter",
+      }));
+      return false;
+    } else {
+      setErrors((errors) => ({ ...errors, namapasien: "" }));
+      return true;
+    }
+  };
+  const validateumur = (umurpasien) => {
+    console.log("umur");
+    if (!umurpasien) {
+      setErrors((errors) => ({
+        ...errors,
+        umurpasien: "Umur Pasien harus diisi",
+      }));
+      return false;
+    } else if (umurpasien.length > 3) {
+      setErrors((errors) => ({
+        ...errors,
+        umurpasien: "umur maximal 3 karakter",
+      }));
+      return false;
+    } else {
+      setErrors((errors) => ({ ...errors, umurpasien: "" }));
+      return true;
+    }
+  };
+  const validateNomedis = (nomedis) => {
+    console.log("medis");
+    if (!nomedis) {
+      setErrors((errors) => ({ ...errors, nomedis: "No.Medis harus diisi" }));
+      return false;
+    } else {
+      setErrors((errors) => ({ ...errors, nomedis: "" }));
+      return true;
+    }
+  };
+  const validatealamat = (alamat) => {
+    console.log("alamat");
+    if (!alamat) {
+      setErrors((errors) => ({ ...errors, alamat: "Alamat harus diisi" }));
+      return false;
+    } else {
+      setErrors((errors) => ({ ...errors, alamat: "" }));
+      return true;
+    }
+  };
+
   const onHandledChanged = (event) => {
-    const name = event.target.name;
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
+    setState({ ...state, [event.target.name]: event.target.value });
+    switch (event.target.name) {
+      case "nik":
+        validateNik(event.target.value);
+        break;
+      case "tgllahir":
+        validatetgl(event.target.value);
+        break;
+      case "namapasien":
+        validateNama(event.target.value);
+        break;
+      case "umurpasien":
+        validateumur(event.target.value);
+        break;
+      case "nomedis":
+        validateNomedis(event.target.value);
+        break;
+      case "alamat":
+        validatealamat(event.target.value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (
+      validateNik(state.nik) &&
+      validatetgl(state.tgllahir) &&
+      validateNama(state.namapasien) &&
+      validateumur(state.umurpasien) &&
+      validateNomedis(state.nomedis) &&
+      validatealamat(state.alamat)
+    ) {
+      onbtndiagnosa(event);
+    }
   };
 
   const onSetFile = (e) => {
@@ -76,9 +182,11 @@ const Diagnosis = () => {
     setOpen(!open);
   };
 
-  const onbtndiagnosa = (e) => {
-    e.preventDefault();
+  const onbtndiagnosa = (event) => {
+    event.preventDefault();
+    setOpen(!open);
     const data = new FormData();
+    // data.append("nik", state.nik);
     data.append("files", state.imgdicom);
 
     console.log(state);
@@ -235,35 +343,36 @@ const Diagnosis = () => {
         console.log("ERRRR:: ", err.response);
         // errorlog(err.response.data.message);
         state.errorlog = err.response.data.message;
+        // window.alert(state.errorlog);
         handleClose();
       });
   };
 
   return (
-    <Grid container xs={12} md={12} justifyContent="center">
-      <Grid
-        item
-        xs={12}
-        md={12}
-        sx={{
-          backgroundImage: `url(${bgall})`,
-          height: "240px",
-          width: { xs: "200px" },
-          marginTop: "16vh",
-          paddingTop: "11vh",
-        }}
-      />
-      <Grid item xs={10} md={10} marginTop="15ch">
-        <Paper
-          elevation={10}
-          style={{
-            marginLeft: 25,
-            marginRight: 25,
-            padding: 15,
-            height: "60vh",
+    <form onSubmit={(event) => handleSubmit(event)}>
+      <Grid container xs={12} md={12} justifyContent="center">
+        <Grid
+          item
+          xs={12}
+          md={12}
+          sx={{
+            backgroundImage: `url(${bgall})`,
+            height: "240px",
+            width: { xs: "200px" },
+            marginTop: "16vh",
+            paddingTop: "11vh",
           }}
-        >
-          <form onSubmit={onbtndiagnosa} encType="multipart/form-data">
+        />
+        <Grid item xs={10} md={10} marginTop="15ch">
+          <Paper
+            elevation={10}
+            style={{
+              marginLeft: 25,
+              marginRight: 25,
+              padding: 15,
+              height: "60vh",
+            }}
+          >
             <Grid container xs={12} md={12} justifyContent="center">
               <Grid item xs={12} md={12} justifySelf="center">
                 <Typography textAlign="center" fontSize="20px" marginTop="20px">
@@ -274,13 +383,14 @@ const Diagnosis = () => {
                 <TextField
                   autoComplete="nik"
                   name="nik"
-                  required
-                  id="nik"
-                  onChange={onHandledChanged}
                   label="NIK"
                   size="small"
                   fullWidth
-                  type="number"
+                  // type="number"
+                  value={state.nik}
+                  onChange={onHandledChanged}
+                  error={!!errors.nik}
+                  helperText={errors.nik}
                 />
               </Grid>
               <Grid item xs={1} md={1}></Grid>
@@ -288,26 +398,28 @@ const Diagnosis = () => {
                 <TextField
                   autoComplete="tgllahir"
                   name="tgllahir"
-                  required
-                  id="tgllahir"
-                  onChange={onHandledChanged}
                   label="Tanggal Lahir"
                   size="small"
                   fullWidth
                   type="date"
                   InputLabelProps={{ shrink: true, required: true }}
+                  value={state.tgllahir}
+                  onChange={onHandledChanged}
+                  error={!!errors.tgllahir}
+                  helperText={errors.tgllahir}
                 />
               </Grid>
               <Grid item xs={5} md={5} marginTop="20px">
                 <TextField
                   autoComplete="namapasien"
                   name="namapasien"
-                  required
-                  id="namapasien"
-                  onChange={onHandledChanged}
                   label="Nama Pasien"
                   size="small"
                   fullWidth
+                  value={state.namapasien}
+                  onChange={onHandledChanged}
+                  error={!!errors.namapasien}
+                  helperText={errors.namapasien}
                 />
               </Grid>
               <Grid item xs={1} md={1}></Grid>
@@ -315,26 +427,28 @@ const Diagnosis = () => {
                 <TextField
                   autoComplete="umurpasien"
                   name="umurpasien"
-                  required
-                  id="umurpasien"
-                  onChange={onHandledChanged}
                   label="Umur Pasien"
                   size="small"
                   fullWidth
                   type="number"
+                  value={state.umurpasien}
+                  onChange={onHandledChanged}
+                  error={!!errors.umurpasien}
+                  helperText={errors.umurpasien}
                 />
               </Grid>
               <Grid item xs={5} md={5} marginTop="20px">
                 <TextField
                   autoComplete="nomedis"
                   name="nomedis"
-                  required
-                  id="nomedis"
-                  onChange={onHandledChanged}
                   label="No.Rekam Medis"
                   size="small"
                   fullWidth
                   type="number"
+                  value={state.nomedis}
+                  onChange={onHandledChanged}
+                  error={!!errors.nomedis}
+                  helperText={errors.nomedis}
                 />
               </Grid>
               <Grid item xs={1} md={1}></Grid>
@@ -342,12 +456,13 @@ const Diagnosis = () => {
                 <TextField
                   autoComplete="alamat"
                   name="alamat"
-                  required
-                  id="alamat"
-                  onChange={onHandledChanged}
                   label="Alamat"
                   size="small"
                   fullWidth
+                  value={state.alamat}
+                  onChange={onHandledChanged}
+                  error={!!errors.alamat}
+                  helperText={errors.alamat}
                 />
               </Grid>
               <Grid item xs={2.2} md={2.2} marginTop="20px">
@@ -365,8 +480,8 @@ const Diagnosis = () => {
                   <Grid item marginTop="20px">
                     <Button
                       type="submit"
-                      onClick={onbtndiagnosa}
-                      onClickCapture={handleToggle}
+                      onClick={handleSubmit}
+                      // onClickCapture={handleToggle}
                       variant="contained"
                       sx={{ background: "#e43d84" }}
                     >
@@ -386,10 +501,10 @@ const Diagnosis = () => {
                 </Grid>
               </Grid>
             </Grid>
-          </form>
-        </Paper>
+          </Paper>
+        </Grid>
       </Grid>
-    </Grid>
+    </form>
   );
 };
 
