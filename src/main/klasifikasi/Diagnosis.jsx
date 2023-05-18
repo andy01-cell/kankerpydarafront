@@ -14,13 +14,20 @@ import axios from "axios";
 import DwvComponent from "../imagedicom/DwvComponent";
 import { bgall } from "../../assets/exportimage";
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../config/Firebase";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import { db, storage } from "../../config/Firebase";
+import {
+  getDownloadURL,
+  ref,
+  uploadBytes,
+  uploadBytesResumable,
+} from "firebase/storage";
 
 const Diagnosis = () => {
   const navigate = useNavigate();
   const [state, setState] = useState({
     imgdicom: "",
+    imgdicomurl: null,
     imgkanker: "",
     errorlog: "",
     nik: "",
@@ -148,7 +155,45 @@ const Diagnosis = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const onSetFile = async (e) => {
+    const file = e.target.files[0];
+    console.log("file = ", file);
+    setState({
+      ...state,
+      imgdicom: file,
+    });
+  };
+
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
+
+  const handleNikChange = async (event) => {
+    event.preventDefault();
+    const querySnapshot = await getDocs(collection(db, "pasien"));
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      if (data._nik === event.target.value) {
+        setState({
+          ...state,
+          nik: data._nik,
+          namapasien: data._namapasien,
+          tgllahir: data._tgllahir,
+          umurpasien: data._umurpasien,
+          nomedis: data._nomedis,
+          alamat: data._alamat,
+          imgdicom: data.gambar,
+        });
+      }
+      console.log("gambar = ", data._nik);
+    });
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (
       validateNik(state.nik) &&
@@ -162,34 +207,20 @@ const Diagnosis = () => {
     }
   };
 
-  const onSetFile = (e) => {
-    const file = e.target.files[0];
-    setState({
-      ...state,
-      imgdicom: file,
-    });
-  };
-
-  // const rrequired = () => {
-  //   onbtndiagnosa();
-  // };
-
-  const [open, setOpen] = React.useState(false);
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleToggle = () => {
-    setOpen(!open);
-  };
-
-  const onbtndiagnosa = (event) => {
+  const onbtndiagnosa = async (event) => {
     event.preventDefault();
     setOpen(!open);
     const data = new FormData();
-    // data.append("nik", state.nik);
+    data.append("nik", state.nik);
+    data.append("tgllahir", state.tgllahir);
+    data.append("umurpasien", state.umurpasien);
+    data.append("alamat", state.alamat);
+    data.append("namapasien", state.namapasien);
+    data.append("no.medis", state.nomedis);
     data.append("files", state.imgdicom);
 
     console.log(state);
+
     axios
       .post("http://localhost:5000/upload", data, {
         headers: {
@@ -197,7 +228,25 @@ const Diagnosis = () => {
         },
       })
       .then((res) => {
-        // const result = res.data.result;
+        // tambahkan data ke Firestore
+        console.log("file");
+
+        if (state.imgdicom instanceof File) {
+          console.log("file");
+          const docRef = addDoc(collection(db, "pasien"), {
+            _nik: state.nik,
+            _namapasien: state.namapasien,
+            _tgllahir: state.tgllahir,
+            _umurpasien: state.umurpasien,
+            _alamat: state.alamat,
+            _nomedis: state.nomedis,
+            gambar: state.imgdicom.name,
+          });
+        } else {
+          console.log("lanjutkan");
+        }
+        console.log("Data berhasil ditambahkan!");
+
         console.log("post succes : ", res);
         let lvlkanker;
         let healsolusi;
@@ -296,7 +345,7 @@ const Diagnosis = () => {
               catatan3: catatan3,
             },
           });
-        } else if (hasilprediksi == "stadium 4") {
+        } else {
           lvlkanker = "STADIUM 4";
           diagnosa =
             "Stadium 4 merupakan tahap paling akhir dan merupakan kondisi serius yang mengancam jiwa. Pasien kanker payudara stadium IV4 atau metastatis memang tidak dapat disembuhkan total. Pada stadium ini, kanker telah menyebar dari payudara dan kelenjar getah bening di sekitarnya ke organ tubuh lain, seperti paru-paru, kelenjar getah bening yang jauh dari payudara, kulit, tulang, hati, atau otak.";
@@ -323,23 +372,10 @@ const Diagnosis = () => {
               catatan3: catatan3,
             },
           });
-        } else {
-          lvlkanker = "NORMAL";
-          healsolusi = "-";
-          navigate("/Hasildiagnosa", {
-            state: {
-              lvlkanker: lvlkanker,
-              healsolusi: healsolusi,
-              hasilakurasi: parseFloat(hasilakurasi * 100).toFixed(2),
-              nama: state.namapasien,
-              umur: state.umurpasien,
-              tgl: state.tgllahir,
-              medis: state.nomedis,
-            },
-          });
         }
       })
       .catch((err) => {
+        console.log("ERor:: ", err);
         console.log("ERRRR:: ", err.response);
         // errorlog(err.response.data.message);
         state.errorlog = err.response.data.message;
@@ -386,9 +422,10 @@ const Diagnosis = () => {
                   label="NIK"
                   size="small"
                   fullWidth
-                  // type="number"
+                  type="number"
                   value={state.nik}
                   onChange={onHandledChanged}
+                  onChangeCapture={handleNikChange}
                   error={!!errors.nik}
                   helperText={errors.nik}
                 />
@@ -467,7 +504,21 @@ const Diagnosis = () => {
               </Grid>
               <Grid item xs={2.2} md={2.2} marginTop="20px">
                 {/* <DwvComponent fileimage={fileimage} /> */}
-                <input onChange={onSetFile} required type="file" />
+                {state.imgdicom ? (
+                  <input
+                    value={state.imgdicom}
+                    type="url"
+                    name="imgdicom"
+                    readOnly
+                  />
+                ) : (
+                  <input
+                    onChange={onSetFile}
+                    type="file"
+                    name="imgdicom"
+                    required
+                  />
+                )}
               </Grid>
               <Grid item xs={12} md={12} />
               <Grid item xs={3} md={3}>
