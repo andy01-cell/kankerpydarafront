@@ -504,6 +504,7 @@ const Diagnosis = () => {
               </Grid>
               <Grid item xs={2.2} md={2.2} marginTop="20px">
                 {/* <DwvComponent fileimage={fileimage} /> */}
+                {/* tombol upload gambar */}
                 {state.imgdicom ? (
                   <input
                     value={state.imgdicom}
