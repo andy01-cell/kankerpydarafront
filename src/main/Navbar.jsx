@@ -39,6 +39,7 @@ const Navbar = () => {
         navigate("/Login");
       }
     });
+    // const uid = "";
   });
 
   const informasiklik = (params) => {
@@ -175,7 +176,7 @@ const Navbar = () => {
                     variant="p"
                     fontSize="17px"
                     fontFamily="sans-serif"
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/home")}
                     style={{
                       cursor: "pointer",
                     }}

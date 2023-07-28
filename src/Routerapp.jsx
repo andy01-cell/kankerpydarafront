@@ -13,13 +13,13 @@ const Routerapp = () => {
   return (
     // <BrowserRouter>
     <Routes>
+      <Route path="/Login" element={<Login />} />
       <Route path="/" element={<Navbar />}>
         <Route path="/" element={<Home />} />
         <Route path="/Characteristic" element={<Characteristic />} />
         <Route path="/Diagnosis" element={<Diagnosis />} />
         <Route path="/About" element={<About />} />
       </Route>
-      <Route path="/Login" element={<Login />} />
       <Route path="/Testappbar" element={<Testappbar />} />
       <Route path="/Hasildiagnosa" element={<Hasildiagnosa />} />
     </Routes>

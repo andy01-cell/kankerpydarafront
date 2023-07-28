@@ -9,143 +9,6 @@ const Hasildiagnosa = () => {
   return (
     <div>
       <Grid container xs={11.5} md={11.5} justifyContent="center">
-        <Grid item>
-          <Box
-            component="img"
-            sx={{
-              width: {
-                md: 100,
-                xs: 100,
-              },
-            }}
-            alt="The house from the offer."
-            src={logoprint1}
-          />
-        </Grid>
-        <Grid item xs={0.3} md={0.2}></Grid>
-        <Grid item>
-          <Typography
-            fontSize="16.9px"
-            sx={{ fontFamily: "Times New Roman" }}
-            lineHeight="20px"
-          >
-            <b>KEMENTERIAN KESEHATAN REPUBLIK INDONESIA</b>
-          </Typography>
-          <Typography
-            fontSize="15px"
-            textAlign="center"
-            sx={{ fontFamily: "Times New Roman" }}
-            lineHeight="15px"
-          >
-            <b>DIREKTORAT JENDERAL PELAYANAN KESEHATAN</b>
-          </Typography>
-          <Typography
-            fontSize="15px"
-            textAlign="center"
-            sx={{ fontFamily: "Times New Roman" }}
-          >
-            RUMAH SAKIT UMUM PUSAT DR. WAHIDIN SUDIROHUSODO
-          </Typography>
-          <Typography
-            fontSize="12.5px"
-            textAlign="center"
-            sx={{ fontFamily: "Times New Roman" }}
-          >
-            Address: Jl.Perintis Kemerdekaan Km.11, Tamalanrea, Makassar, Kode
-            Pos: 90245
-          </Typography>
-          <Typography
-            fontSize="12.5px"
-            textAlign="center"
-            sx={{ fontFamily: "Times New Roman" }}
-          >
-            Telp (0411) 584675 – 581818 (Hunting) , Fax (0411) 587676
-          </Typography>
-          <Typography
-            fontSize="12.5px"
-            textAlign="center"
-            sx={{ fontFamily: "Times New Roman" }}
-          >
-            Laman: www.rsupwahidin.com Surat Elektronik: tu@rsupwahidin.com
-          </Typography>
-        </Grid>
-        <Grid item xs={0.3} md={0.2}></Grid>
-        <Grid item>
-          <Box
-            component="img"
-            sx={{
-              width: {
-                md: 100,
-                xs: 100,
-              },
-            }}
-            alt="The house from the offer."
-            src={logoprint2}
-          />
-        </Grid>
-        <Grid item xs={12} md={12}>
-          <hr
-            color="#000"
-            style={{
-              width: "680px",
-              //   marginLeft: "0px",
-              height: "1.5px",
-            }}
-          />
-        </Grid>
-        <Grid item xs={12} md={6.4}>
-          <Grid container justifyContent="space-between">
-            <Grid item xs={6} md={6}>
-              <Grid container xs={12} md={12}>
-                <Grid item xs={4.5} md={4.5}>
-                  Nik
-                  <br />
-                  Nama Pasien
-                  <br />
-                  No. Rekam Medis
-                </Grid>
-                <Grid item xs={0.3} md={0.3}>
-                  :
-                  <br />
-                  :
-                  <br />:
-                </Grid>
-                <Grid item xs={7.2} md={7.2}>
-                  {datapredik.state.nik}
-                  <br />
-                  {datapredik.state.nama}
-                  <br />
-                  {datapredik.state.medis}
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <Grid container xs={12} md={12}>
-                <Grid item xs={4.5} md={4.5}>
-                  Tanggal Lahir
-                  <br />
-                  Umur
-                  <br />
-                  Alamat
-                </Grid>
-                <Grid item xs={0.3} md={0.3}>
-                  :
-                  <br />
-                  :
-                  <br />:
-                </Grid>
-                <Grid item xs={7.2} md={7.2}>
-                  {datapredik.state.tgl}
-                  <br />
-                  {datapredik.state.umur}
-                  <br />
-                  {datapredik.state.alamat}
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={12} md={12}></Grid>
         <Grid item xs={12} md={6.4} marginTop="50px">
           <Typography
             fontSize="25px"
@@ -158,14 +21,12 @@ const Hasildiagnosa = () => {
             fontSize="17px"
             textAlign="center"
             sx={{ fontFamily: "Times New Roman" }}
-          >
-            <b>DIAGNOSA</b>
-          </Typography>
+          ></Typography>
         </Grid>
         <Grid item xs={12} md={12}></Grid>
         <Grid item xs={12} md={6.4} marginTop="25px">
-          <Grid container justifyContent="space-between">
-            <Grid item xs={4} md={4}>
+          <Grid container justifyContent="center">
+            <Grid item xs={4.75} md={4.75} justifyContent="center">
               <Box
                 component="img"
                 sx={{
@@ -177,20 +38,65 @@ const Hasildiagnosa = () => {
                 alt="The house from the offer."
                 src={"http://localhost:5000//static/clasifer/clasifier.jpg"}
               />
-              <Typography
-                fontSize="17px"
-                sx={{ fontFamily: "Times New Roman" }}
-              >
-                {datapredik.state.lvlkanker}
-              </Typography>
-              <Typography
-                fontSize="17px"
-                sx={{ fontFamily: "Times New Roman" }}
-              >
-                PERSENTASE {datapredik.state.hasilakurasi}%
-              </Typography>
             </Grid>
-            <Grid item xs={6.8} md={6.8} marginTop="-15px">
+            <Grid item xs={12} md={12} marginTop="35px">
+              <Grid container xs={12} md={12} textAlign="center">
+                <Grid item xs={5} md={5}>
+                  <Typography
+                    fontSize="17px"
+                    sx={{ fontFamily: "Times New Roman" }}
+                  >
+                    SVM Kernel RBF
+                  </Typography>
+                  <Typography
+                    fontSize="17px"
+                    sx={{ fontFamily: "Times New Roman" }}
+                    marginTop="10px"
+                  >
+                    {datapredik.state.lvlkankerrbf}
+                  </Typography>
+                  <Typography
+                    fontSize="17px"
+                    sx={{ fontFamily: "Times New Roman" }}
+                    marginTop="10px"
+                  >
+                    {datapredik.state.hasilakurasirbf}%
+                  </Typography>
+                </Grid>
+                <Grid item md={2} xs={2} />
+                <Grid item xs={5} md={5}>
+                  <Typography
+                    fontSize="17px"
+                    sx={{ fontFamily: "Times New Roman" }}
+                  >
+                    SVM Kernel Polynominal
+                  </Typography>
+                  <Typography
+                    fontSize="17px"
+                    sx={{ fontFamily: "Times New Roman" }}
+                    marginTop="10px"
+                  >
+                    {datapredik.state.lvlkankerpoly}
+                  </Typography>
+                  <Typography
+                    fontSize="17px"
+                    sx={{ fontFamily: "Times New Roman" }}
+                    marginTop="10px"
+                  >
+                    {datapredik.state.hasilakurasipoly}%
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={12} marginTop="7ch">
+              <Typography
+                fontSize="17px"
+                textAlign="justify"
+                sx={{ fontFamily: "Times New Roman" }}
+                marginTop
+              >
+                <b>Diagnosa :</b>
+              </Typography>
               <Typography
                 fontSize="15px"
                 textAlign="justify"
@@ -235,26 +141,6 @@ const Hasildiagnosa = () => {
               <li>{datapredik.state.catatan3}</li>
             </ol>
           </Typography>
-        </Grid>
-        <Grid item xs={12} md={6.4} marginTop="25px">
-          <Grid container justifyContent="end">
-            <Grid item>
-              <Typography
-                fontSize="15px"
-                textAlign="justify"
-                sx={{ fontFamily: "Times New Roman" }}
-              >
-                Dokter Penanggung jawab
-                <br />
-                Makassar,&emsp;&emsp;&emsp;&emsp; 20 &emsp;&emsp;&emsp;
-                <br />
-                <br />
-                <br />
-                <br />
-                (...................................)
-              </Typography>
-            </Grid>
-          </Grid>
         </Grid>
       </Grid>
     </div>
