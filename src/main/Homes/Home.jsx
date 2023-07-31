@@ -60,8 +60,8 @@ const Home = () => {
               <b>
                 {/* Your Most Trusted <br />
                 Health Partner */}
-                Terpercaya Sebagai <br />
-                Mitra Kesehatan
+                Deteksi Penyakit <br />
+                Kanker Payudara
               </b>
             </Typography>
           </Grid>
@@ -110,11 +110,11 @@ const Home = () => {
           </Grid>
           <Grid item xs={3.8} md={3.8}>
             <Typography color="#223a66" fontSize="44px" fontFamily="sans-serif">
-              <b>Perawatan Pribadi & Hidup Sehat</b>
+              <b>Informasi Penyakit Kanker Payudara</b>
             </Typography>
             <Typography color="#6F8BA4" fontSize="16px" fontFamily="sans-serif">
-              Kami memberikan pelayanan medis terdepan yang terbaik, terutama
-              dalam pengobatan kanker payudara
+              Karakteristik atau ciri-ciri dari penyakit kanker payudara sesuai
+              tingkat stadium
             </Typography>
             <Button
               variant="contained"

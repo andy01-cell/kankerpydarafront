@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Login from "./autentikasi/Login";
-import About from "./main/Tentang/About";
 import Diagnosis from "./main/klasifikasi/Diagnosis";
 import Navbar from "./main/Navbar";
 import Characteristic from "./main/karakteristik/Characteristic";
@@ -18,7 +17,6 @@ const Routerapp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/Characteristic" element={<Characteristic />} />
         <Route path="/Diagnosis" element={<Diagnosis />} />
-        <Route path="/About" element={<About />} />
       </Route>
       <Route path="/Testappbar" element={<Testappbar />} />
       <Route path="/Hasildiagnosa" element={<Hasildiagnosa />} />

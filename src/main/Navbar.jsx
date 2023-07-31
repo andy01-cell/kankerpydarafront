@@ -176,7 +176,7 @@ const Navbar = () => {
                     variant="p"
                     fontSize="17px"
                     fontFamily="sans-serif"
-                    onClick={() => navigate("/home")}
+                    onClick={() => navigate("/")}
                     style={{
                       cursor: "pointer",
                     }}
@@ -211,21 +211,6 @@ const Navbar = () => {
                     color={disabled1}
                   >
                     <b>Classification </b>
-                  </Typography>
-                </Grid>
-                <Grid item onClick={() => bantuanklik("nyala3")}>
-                  <Typography
-                    variant="p"
-                    fontSize="17px"
-                    fontFamily="sans-serif"
-                    type="button"
-                    onClick={() => navigate("/About")}
-                    style={{
-                      cursor: "pointer",
-                    }}
-                    color={disabled2}
-                  >
-                    <b>About</b>
                   </Typography>
                 </Grid>
                 <Grid item>

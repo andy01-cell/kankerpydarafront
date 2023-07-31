@@ -14,23 +14,20 @@ const Footer = () => {
       justifyContent="center"
     >
       <Grid item xs={10} md={10}>
-        <Grid container xs={12} md={12} justifyContent="space-between">
-          <Grid item xs={3.9} md={6} marginTop="10ch">
-            <Grid container xs={12} md={12} justifyContent="center">
-              <Grid item xs={4} md={3}>
-                <Box
-                  component="img"
-                  sx={{
-                    width: {
-                      md: 126,
-                      xs: 126,
-                    },
-                  }}
-                  alt="The house from the offer."
-                  src={logo}
-                />
+        <Grid container xs={12} md={12} justifyContent="center">
+          <Grid item xs={10} md={10} marginTop="15ch">
+            <Grid container alignItems="center" justifyContent="space-between">
+              <Grid item xs={3.8} md={3.8}>
+                <Typography
+                  variant="p"
+                  fontSize="44px"
+                  fontFamily="sans-serif"
+                  color="#223a66"
+                >
+                  <b>About Us</b>
+                </Typography>
               </Grid>
-              <Grid item xs={12} md={12}>
+              <Grid item xs={3.8} md={7.9}>
                 <Typography
                   fontFamily="sans-serif"
                   fontSize="16px"
@@ -38,82 +35,18 @@ const Footer = () => {
                   marginTop="25px"
                   color="#6F8BA4"
                 >
-                  Visi: Menjadi Pusat Kesehatan Akademi Terkemuka di Indonesia.
-                  Misi: menyelenggarakan pelayanan, pendidikan dan penelitian di
-                  bidang kesehatan berkualitas yang berintegrasi Holistic dan
-                  Profesional, terkhusus rumah sakit jejaring wilayah di
-                  Indonesia Timur.
+                  Sistem <i>MammoBreast</i> merupakan sistem yang dapat
+                  mendeteksi kanker payudara, mengetahui stadium, dan informasi
+                  mengenai kanker payudara. Pencegahan kanker payudara dapat
+                  dilakukan dengan pemeriksaan payudara secara mandiri atau
+                  pemeriksaan oleh petugas medis di rumah sakit Dr. Wahidin
+                  Sudirohusodo Makassar. Pemeriksaan harus dilakukan secara
+                  rutin bila Anda berisiko terserang kanker payudara. Selain
+                  itu, disarankan untuk berolahraga secara rutin dan tidak
+                  mengonsumsi minuman beralkohol.
                 </Typography>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={1.4} md={1.4} marginTop="10ch">
-            <Typography
-              variant="p"
-              fontSize="23px"
-              fontFamily="sans-serif"
-              textAlign="justify"
-              color="#223a66"
-            >
-              <b>Department</b> <br />
-            </Typography>
-            <hr
-              color="#e12454"
-              style={{
-                width: "40px",
-                height: "1.5px",
-                marginLeft: "0px",
-                marginBottom: "20px",
-              }}
-            ></hr>
-            <Typography
-              fontFamily="sans-serif"
-              fontSize="16px"
-              textAlign="justify"
-              marginTop="25px"
-              color="#6F8BA4"
-              lineHeight="35px"
-            >
-              Surgery <br />
-              Wome's Health <br />
-              Radiology <br />
-              Breast Cancer <br />
-              Medicine
-            </Typography>
-          </Grid>
-          <Grid item xs={1.5} md={1.6} marginTop="10ch">
-            <Typography
-              variant="p"
-              fontSize="23px"
-              fontFamily="sans-serif"
-              textAlign="justify"
-              color="#223a66"
-            >
-              <b>Support</b> <br />
-            </Typography>
-            <hr
-              color="#e12454"
-              style={{
-                width: "40px",
-                height: "1.5px",
-                marginLeft: "0px",
-                marginBottom: "20px",
-              }}
-            ></hr>
-            <Typography
-              fontFamily="sans-serif"
-              fontSize="16px"
-              textAlign="justify"
-              marginTop="25px"
-              color="#6F8BA4"
-              lineHeight="35px"
-            >
-              Terms & Conditions <br />
-              Privacy Policy <br />
-              Company Support <br />
-              FAQuestions <br />
-              Company Licence
-            </Typography>
           </Grid>
         </Grid>
       </Grid>
