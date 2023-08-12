@@ -41,18 +41,6 @@ const Home = () => {
             ></hr>
             <Typography
               variant="p"
-              fontSize="14px"
-              fontFamily="sans-serif"
-              color="#6F8BA4"
-              letterSpacing="3px"
-            >
-              {/* TOTAL HEALTH CARE SOLUTION  */}
-              SOLUSI PERAWATAN KESEHATAN TOTAL
-              <br />
-              <br />
-            </Typography>
-            <Typography
-              variant="p"
               fontSize="60px"
               fontFamily="sans-serif"
               color="#223a66"

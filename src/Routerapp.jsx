@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Login from "./autentikasi/Login";
 import Diagnosis from "./main/klasifikasi/Diagnosis";
 import Navbar from "./main/Navbar";
 import Characteristic from "./main/karakteristik/Characteristic";
@@ -12,7 +11,6 @@ const Routerapp = () => {
   return (
     // <BrowserRouter>
     <Routes>
-      <Route path="/Login" element={<Login />} />
       <Route path="/" element={<Navbar />}>
         <Route path="/" element={<Home />} />
         <Route path="/Characteristic" element={<Characteristic />} />

@@ -1,19 +1,13 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
-import { Route, Routes, BrowserRouter, Outlet } from "react-router-dom";
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import { logo, logout } from "../assets/exportimage";
-import { Divider, IconButton, Menu, MenuItem } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { logo } from "../assets/exportimage";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../config/Firebase";
-import Home from "./karakteristik/Characteristic";
-import Diagnosis from "./klasifikasi/Diagnosis";
 import Footer from "./Footer";
 
 const Navbar = () => {
@@ -23,25 +17,6 @@ const Navbar = () => {
   const [disabled3, setDisabled3] = useState("#000");
 
   const navigate = useNavigate();
-  let user = localStorage.getItem("token_login");
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        console.log("login = ", user);
-        // ...
-      } else {
-        // User is signed out
-        // ...
-        console.log("logout = ", user);
-        navigate("/Login");
-      }
-    });
-    // const uid = "";
-  });
-
   const informasiklik = (params) => {
     console.log("test => ", params);
 
@@ -113,18 +88,6 @@ const Navbar = () => {
   };
   const handleClosesetting = () => {
     setSetting(null);
-  };
-
-  const onbuttonlogout = () => {
-    auth
-      .signOut()
-      .then(function () {
-        // Sign-out successful.
-      })
-      .catch(function (error) {
-        // An error happened.
-        console.log("logout = ", error);
-      });
   };
 
   return (
@@ -212,21 +175,6 @@ const Navbar = () => {
                   >
                     <b>Classification </b>
                   </Typography>
-                </Grid>
-                <Grid item>
-                  <Box
-                    component="img"
-                    sx={{
-                      width: {
-                        md: 20,
-                        xs: 20,
-                      },
-                      cursor: "pointer",
-                    }}
-                    alt="The house from the offer."
-                    onClick={onbuttonlogout}
-                    src={logout}
-                  />
                 </Grid>
               </Grid>
               {/* </nav> */}

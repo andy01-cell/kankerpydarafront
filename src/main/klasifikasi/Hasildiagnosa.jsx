@@ -88,7 +88,7 @@ const Hasildiagnosa = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={12} md={12} marginTop="7ch">
+            <Grid item xs={12} md={12} marginTop="7ch" marginBottom="7ch">
               <Typography
                 fontSize="17px"
                 textAlign="justify"
@@ -104,43 +104,8 @@ const Hasildiagnosa = () => {
               >
                 {datapredik.state.diagnosa}
               </Typography>
-              <Typography
-                fontSize="17px"
-                textAlign="justify"
-                sx={{ fontFamily: "Times New Roman" }}
-                marginTop
-              >
-                <b>Cara Penanganan :</b>
-              </Typography>
-              <Typography
-                fontSize="15px"
-                textAlign="justify"
-                sx={{ fontFamily: "Times New Roman" }}
-              >
-                {datapredik.state.healsolusi}
-              </Typography>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={12} md={6.4} marginTop="25px">
-          <Typography
-            fontSize="15px"
-            textAlign="justify"
-            sx={{ fontFamily: "Times New Roman" }}
-          >
-            Catatan Dokter :
-          </Typography>
-          <Typography
-            fontSize="14px"
-            textAlign="justify"
-            sx={{ fontFamily: "Times New Roman" }}
-          >
-            <ol>
-              <li>{datapredik.state.catatan1}</li>
-              <li>{datapredik.state.catatan2}</li>
-              <li>{datapredik.state.catatan3}</li>
-            </ol>
-          </Typography>
         </Grid>
       </Grid>
     </div>
