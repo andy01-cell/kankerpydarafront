@@ -124,7 +124,7 @@ const Navbar = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={8} md={4}>
+            <Grid item xs={7} md={3.5}>
               {/* <nav> */}
               <Grid
                 container

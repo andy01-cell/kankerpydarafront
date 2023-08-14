@@ -55,6 +55,7 @@ const Diagnosis = () => {
     console.log(state);
     axios
       .post("http://localhost:5000/upload", data, {
+      // .post("https://funny-dango-3c84ea.netlify.app/upload", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

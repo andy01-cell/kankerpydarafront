@@ -88,23 +88,13 @@ const Hasildiagnosa = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={12} md={12} marginTop="7ch" marginBottom="7ch">
-              <Typography
-                fontSize="17px"
-                textAlign="justify"
-                sx={{ fontFamily: "Times New Roman" }}
-                marginTop
-              >
-                <b>Diagnosa :</b>
-              </Typography>
-              <Typography
-                fontSize="15px"
-                textAlign="justify"
-                sx={{ fontFamily: "Times New Roman" }}
-              >
-                {datapredik.state.diagnosa}
-              </Typography>
-            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={12}
+              marginTop="7ch"
+              marginBottom="7ch"
+            ></Grid>
           </Grid>
         </Grid>
       </Grid>
