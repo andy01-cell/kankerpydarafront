@@ -55,7 +55,7 @@ const Diagnosis = () => {
     console.log(state);
     axios
       .post("http://localhost:5000/upload", data, {
-      // .post("https://funny-dango-3c84ea.netlify.app/upload", data, {
+        // .post("https://kankerpydara.netlify.app/", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -78,27 +78,12 @@ const Diagnosis = () => {
         const hasilakurasirbf = res.data.akurasi_rbf;
         const hasilakurasipoly = res.data.akurasi_poly;
         if (hasilprediksirbf == "stadium 1") {
-          diagnosa =
-            "Stadium I merupakan tahap paling awal dari kanker payudara yang berpotensi menyebar (invasif). Pada tahap ini, ukuran tumor masih sangat kecil ukuran kurang dari 2 cm dan belum menyebar ke kelenjar getah bening. Ditemukan sekelompok sel kanker dengan ukuran antara 0,2 milimeter sampai 2 milimeter di kelenjar getah bening. Pemeriksaan kanker payudara kurang lebih sebesar biji kurma yang akan merasakan sakit/nyeri, payudara membengkak atau memerah, puting payudara mengeluarkan cairan meski tidak menyusui. ";
-          healsolusi =
-            "Pada tahap ini, pengobatannya dilakukan adalah operasi pengangkatan sel kanker dilanjutkan dengan terapi radiasi pada area yang sebelumnya terserang kanker. Pada tahap ini, terapi hormon dan kemoterapi juga mungkin dianjurkan untuk mengurangi risiko kanker tumbuh kembali.";
-          catatan1 =
-            "Pasien mengalami kanker payudara STADIUM 1 , dengan ini pasien harus mengonsumsi obat dari resep dokter dan menjalani terapi.";
-          catatan2 =
-            "Penyakit yang di derita pasien mulai menyebar area puting payudara dan bisa merusak otak.";
-          catatan3 =
-            "Pada penyakit kanker payudara STADIUM 1 yang memiliki 3 bakteri.";
           navigate("/Hasildiagnosa", {
             state: {
               lvlkankerrbf: hasilprediksirbf,
               lvlkankerpoly: hasilprediksipoly,
-              healsolusi: healsolusi,
               hasilakurasipoly: parseFloat(hasilakurasipoly * 100).toFixed(2),
               hasilakurasirbf: parseFloat(hasilakurasirbf * 100).toFixed(2),
-              diagnosa: diagnosa,
-              catatan1: catatan1,
-              catatan2: catatan2,
-              catatan3: catatan3,
             },
           });
         } else if (hasilprediksirbf == "stadium 2") {

@@ -17,11 +17,6 @@ const Hasildiagnosa = () => {
           >
             <b>HASIL PEMERIKSAAN</b>
           </Typography>
-          <Typography
-            fontSize="17px"
-            textAlign="center"
-            sx={{ fontFamily: "Times New Roman" }}
-          ></Typography>
         </Grid>
         <Grid item xs={12} md={12}></Grid>
         <Grid item xs={12} md={6.4} marginTop="25px">
@@ -69,7 +64,7 @@ const Hasildiagnosa = () => {
                     fontSize="17px"
                     sx={{ fontFamily: "Times New Roman" }}
                   >
-                    SVM Kernel Polynominal
+                    SVM Kernel Polynomial
                   </Typography>
                   <Typography
                     fontSize="17px"
